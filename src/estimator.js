@@ -60,10 +60,10 @@ const hospitalBedsByRequestedTime = (data, severeCases) => {
 const covid19ImpactEstimator = ((data) => {
   const impact = {};
   const severeImpact = {};
-  const reportedCases = data.reportedCases;
+  const reportedCases = {};
 
-  impact.currentlyInfected = reportedCases * 10;
-  severeImpact.currentlyInfected = reportedCases * 50;
+  impact.currentlyInfected = data.reportedCases * 10;
+  severeImpact.currentlyInfected = data.reportedCases * 50;
 
   const iCurrentlyInfected = impact.currentlyInfected;
   impact.infectionsByRequestedTime = infectionsByRequestedTime(data, iCurrentlyInfected);
